@@ -1,5 +1,5 @@
-const container = document.querySelector('.container');
-const grid = 16;
+const container = document.querySelector('.inner-container');
+const grid = 256;
 
 for (let i = 0; i < grid; i++) {    //Create loop for drawing squares
     const square = document.createElement('div');
