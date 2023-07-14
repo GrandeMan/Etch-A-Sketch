@@ -4,6 +4,7 @@
 
   body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -26,11 +27,11 @@
     justify-content: space-between;
     width: 660px;
     height: 660px;
-    border: 1px outset rgba(10, 2, 32, 0.336);
+    
   }
 
   .grid-square {
     height: 40px;
     width: 40px;
-    border: 1px outset rgba(10, 2, 32, 0.336);
+    /* border: 1px outset rgba(10, 2, 32, 0.336); */
   }
