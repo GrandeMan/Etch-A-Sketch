@@ -7,7 +7,7 @@ for (let i = 0; i < grid; i++) {    //Create loop for drawing squares
     container.appendChild(square);
 
     square.addEventListener('mouseover', () => {
-        square.style.backgroundColor = 'black';
+        square.style.backgroundColor = '#00FF41';
     });
 
 };

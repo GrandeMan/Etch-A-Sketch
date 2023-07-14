@@ -9,6 +9,7 @@
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-color: #0D0208;
   }
 
   .container {
@@ -16,8 +17,9 @@
     justify-content: center;
     align-items: center;
     padding: 8px;
-    border: orangered 4px inset;
-    background-color: rgba(255, 127, 80, 0.596);
+    border: #003B00 6px ridge;
+    background-color: #003B0073;
+    
   }
 
   .inner-container {
@@ -27,7 +29,7 @@
     justify-content: space-between;
     width: 660px;
     height: 660px;
-    
+    filter: blur(2.5px);
   }
 
   .grid-square {
