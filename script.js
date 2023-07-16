@@ -1,27 +1,54 @@
 const container = document.querySelector('.container');
 const innerContainer = document.querySelector('.inner-container');
-
-// Function to draw when mouse is down and stop drawing when up
+const drawButton = document.querySelector ('.draw-button');
+const eraseButton = document.querySelector('.erase-button');
 
 let isDrawing = false;
+let isErasing = false;
 
-function whenMouseDown(down) {
+isDrawingMode();
+
+function isDrawingMode() {
     isDrawing = true;
-    down.target.style.backgroundColor = '#00FF41';
+    isErasing = false;
 }
 
-function whenMouseEnter(enter) { //mouseover does not work because it bubbles up DOM tree, whereas mouseenter only affects the target element
+function isErasingMode() {
+    isDrawing = false;
+    isErasing = true;
+}
+
+function whenMouseDown(click) {
     if (isDrawing) {
-        enter.target.style.backgroundColor = '#00FF41';
+        click.target.style.backgroundColor = '#00FF41';
+    } else if (isErasing) {
+        click.target.style.backgroundColor = '';
     }
 }
 
-function whenMouseUp() {
-    isDrawing = false;
+function whenMouseEnter(hover) {
+    if (isDrawing && hover.buttons) {
+        hover.target.style.backgroundColor = '#00FF41';
+    } else if (isErasing && hover.buttons) {
+        hover.target.style.backgroundColor = '';
+    }
 }
 
+function whenMouseUp(unclick) {
+    if (unclick.button === 0) {
+        if (isDrawing) {
+            isErasing = false;
+        } else if (isErasing) {
+            isDrawing = false;
+        }
+    }
+}
 
-function createGrid(gridSize = 16) {
+drawButton.addEventListener('click', isDrawingMode);
+eraseButton.addEventListener('click', isErasingMode);
+
+
+function createGrid(gridSize = 50) {
     innerContainer.innerHTML = '';
 
     // Calculate square size as percentage
@@ -34,6 +61,10 @@ function createGrid(gridSize = 16) {
         square.className = 'grid-square';
         square.addEventListener('mousedown', whenMouseDown);
         square.addEventListener('mouseenter', whenMouseEnter);
+        document.addEventListener('mouseup', whenMouseUp);
+        square.addEventListener('dragstart', (drag) => {
+            drag.preventDefault();
+        });
         innerContainer.appendChild(square);
     }
 
@@ -42,8 +73,6 @@ function createGrid(gridSize = 16) {
         square.style.width = squareSize;
         square.style.paddingBottom = squareSize;
     });
-
-    window.addEventListener('mouseup', whenMouseUp);
 
 }
 
