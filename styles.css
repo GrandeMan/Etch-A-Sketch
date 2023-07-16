@@ -8,8 +8,22 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
+  padding-top: 50px;
+  margin-top: 10px;
   background-color: #0D0208;
+}
+
+.svg-container {
+  position:relative;
+  width: 500px;
+  height: 500px;
+}
+
+.svg-content {
+  position: absolute;
+  top: -235px;
+  left: -10px;
+  right: -10px
 }
 
 .container {
