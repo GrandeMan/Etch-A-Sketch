@@ -1,29 +1,33 @@
 * {
   box-sizing: border-box;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect x="0" y="0" width="24" height="24" stroke="%2300FF41" stroke-width="3" fill="none"/><line x1="0" y1="0" x2="24" y2="0" stroke="%2300FF41" stroke-width="3"/></svg>'), auto;
+}
+
+.svg-container {
+  display: flex;
+  align-self: center;
+  width: 500px;
+  height: 500px;
+  padding: 0;
+  margin: -200px 0;
+}
+
+.svg-content {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
 }
 
 body {
   display: flex;
+  flex:1 1 auto;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 100vh;
   padding-top: 50px;
   margin-top: 10px;
   background-color: #0D0208;
-}
-
-.svg-container {
-  position:relative;
-  width: 500px;
-  height: 500px;
-}
-
-.svg-content {
-  position: absolute;
-  top: -235px;
-  left: -10px;
-  right: -10px
 }
 
 .container {
@@ -48,5 +52,54 @@ body {
 }
 
 .grid-square {
-  box-shadow: 0 0 1px 2px #64ff8b09;
+  box-shadow: 0 0 1px 1px #64ff8b09;
+}
+
+.selectors {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.draw-button, .erase-button, .clear-button, .grid-size {
+  font-family: 'Share Tech', sans-serif;
+  font-weight: 600;
+  border: 4px #00FF41 outset;
+  box-shadow: 0 0 2px 2px #00ff40;
+  background-color: #0D0208;
+  padding: 10px;
+  color: #00FF41;
+}
+
+.grid-size {
+  border-radius: 10px 0 0 20px;
+}
+
+.draw-button {
+  border-radius: 20px 20px 5px 5px;
+}
+
+.erase-button {
+  border-radius: 5px 5px 20px 20px;
+}
+
+.clear-button {
+  border-radius: 0px 10px 20px 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.grid-size, .clear-button {
+  flex: 0 0 auto;
+  align-self: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+  margin-top: 10px;
+  padding: 30px;
+  margin-bottom: 10px;
+  background-color: #0D0208; 
 }
